@@ -1,26 +1,50 @@
-package sem2;
-public class product {
-    String pcode,pname;
-    int price;
-        public static void main(String[] args) {
-        product p_1 = new product("A123", "TV", 2);
-        product p_2 = new product("B123", "RADIO", 21);
-        product p_3 = new product("C123", "DVD", 3);
+import java.util.*;
+public class product{
+	int pcode,price;
+	String pname;
+	void input()
+	   {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("enter the product code:");
+		pcode=sc.nextInt();
+		System.out.println("enter the product price:");
+		price=sc.nextInt();
+		sc.nextLine();
+        System.out.println("enter the product name:");
+		pname=sc.nextLine();
+	   }
+	void display()
+	  {
+		System.out.println(pcode);
+		System.out.println(price);
+		System.out.println(pname);
+	  }
+	public static void main(String[] args) {
+		product obj1=new product();
+		product obj2=new product();
+		product obj3=new product();
+		obj1.input();
+		obj2.input();
+		obj3.input();
+		System.out.println("the first object:");
+		obj1.display();
+		System.out.println("the second object:");
+		obj2.display();
+		System.out.println("the three object:");
+		obj3.display();
+		if(obj1.price < obj2.price && obj1.price < obj3.price)   
+		  {
+			System.out.println("first object has lowest price:");
+		  }
+		else if(obj2.price < obj1.price && obj2.price < obj3.price)
+		  {
+			System.out.println("second object has lowest price:");
+		  }
+		else
+	      {
+			System.out.println("third object has lowest price:");
 
-        if (p_1.price <= p_3.price && p_1.price <= p_2.price) 
-            System.out.println("Lowest product ID is  : " + p_1.pcode);
-        if (p_3.price <= p_1.price && p_3.price <= p_2.price) 
-            System.out.println("Lowest product ID is  : " + p_3.pcode);
-        if (p_2.price <= p_3.price && p_2.price <= p_1.price) 
-            System.out.println("Lowest product ID is  : " + p_2.pcode);
+	      }
+	}
 
-    }
-
-    public product(String pcode1, String pname1, int price1) {
-        pcode = pcode1;
-        pname = pname1;
-        price = price1;
-    }
-
-    
 }
